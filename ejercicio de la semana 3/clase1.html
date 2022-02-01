@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "app">
+
+        <button v-on:click="mensaje"> click en mi</button>
+        <button @click="mensaje">click corto</button>
+        <button v-on="eventos_boton">test</button>
+
+        <canvas style="height: 400;
+             width: 400; 
+             background-color: bisque;"
+            v-on="leer_teclado($e)"
+             >
+
+        </canvas>
+        
+    </div>    
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script>
+        let datos ={
+            eventos_boton:{
+                
+                click:function(){
+                    alert("test")
+                        },
+
+                mouseleave:function(){
+                    alert("sobre el")
+                    }
+                
+                    },
+                leer_teclado:function(e){
+                    alert(e)
+                }
+        }
+        new Vue({
+
+            el:"#app",
+            /*
+            data(){
+                return{
+                    eventos:{
+                        click:function(){
+                            alert("test")
+                        }
+
+                    }
+                }
+            },*/
+            data:datos,
+            /*
+            created(){
+                window.addEventListener("keydown",function(e){
+                    alert(e.key)
+                })
+            },*/
+            methods:{
+                mensaje(){
+                    alert("funciona")
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

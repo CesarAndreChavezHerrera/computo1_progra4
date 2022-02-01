@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios complementarios</title>
+</head>
+<body>
+    <div id="principal">
+        <p v-html="encabezado"></p>
+        <p> ***** ejercicio3 *****</p>
+        <p v-html="datowilliam"></p>
+        <p v-html="datocesar"></p>
+        <br>
+        <p> ***** ejercicio 4 *****</p>
+        <p v-html="h2william"></p>
+        <p v-html="h2cesar"></p>
+        <br>
+        <p> ***** ejercicio 5 *****</p>
+
+        <h3 style="color:#FF0000; "><b>Listado de peliculas</b></h3>
+        <ul>
+            <li v-for="item in peliculas">
+                <label>{{item.text}}</label>
+            </li>
+        </ul>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+
+    <script>
+        let datos={
+            encabezado:"<h1>Integrantes del grupo</h1>",
+            datowilliam:"<b>William Rene Jimenez Guzman ---- SMIS031920</b>",
+            datocesar:  "Cesar Andre Chavez Herrera ---------- SMIS033320",
+            h2william:"<h2><i>William Rene Jimenez Guzman ---- SMIS031920</i></h2>",
+            h2cesar:  "<h2><i>Cesar Andre Chavez Herrera ------- SMIS033320</i></h2>",
+            peliculas:[{text:'Spiderman:De regreso a casa',checked: false}, {text:'Spiderman:Sin regreso a casa',checked: false}, {text:'Spiderman:Empeñamos la casa',checked: false}, {text:'Spiderman:Perdimos la casa',checked: false}],
+        }
+
+        var prueba = new Vue({
+            el:'#principal',
+            data:datos
+        })
+    </script>
+
+</body>
+</html>

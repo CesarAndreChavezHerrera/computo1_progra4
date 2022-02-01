@@ -12,16 +12,38 @@
         crossorigin="anonymous">
 
 </head>
+
 <body>
-    <div class="container">
-        <h1>Ejemplo Javascrtip</h1>
+
+    <div id="principal">
+        <p v-html="encabezado"></p>
+        <p v-html="datowilliam"></p>
+        <p v-html="datocesar"></p>
+        <p v-html="h2william"></p>
+        <p v-html="h2cesar"></p>
+        <br>
+
+        <p style="color:#FF0000; "><b>Listado de peliculas</b></p>
+        <ul>
+            <li v-for="item in peliculas">
+                <label>{{item.text}}</label>
+            </li>
+        </ul>
+
+    </div>
+    <div class="container" id="prueba">
+        
+        <h1>Ejemplo Javascript</h1>
+        
+        
         <div class="mb-3">
             <h2>Agregar elemento</h2>
             <input type = "text" id="addItem",class = "form-control">
-            <button id="addItemButton" class="btn btn-success">Add</button>
-            <button id ="removeItemButton" class ="btn btn-danger">del Last</button>
-            <button id = "removeItem" class = "btn btn-danger">Del Selected</button>
+            <button id="addItemButton" class="btn btn-success" v-on:keyup.enter="addItemButton">Add</button>
+            <button id ="removeItemButton" class ="btn btn-danger">Delete Last</button>
+            <button id = "removeItem" class = "btn btn-danger">Delete Selected</button>
         </div>
+        
         <div class="mb-3">
             <button id="hideElements" class = "btn btn-secondary"><<</button>
         </div>
@@ -40,6 +62,26 @@
 
         <script src="app.js"></script>
     </div>
+
+    
+
+    
+    <script>
+        let datos={
+            encabezado:"<h1>Integrantes del grupo</h1>",
+            datowilliam:"<b>William Rene Jimenez Guzman ---- SMIS031920</b>",
+            datocesar:  "Cesar Andre Chavez Herrera ---------- SMIS033320",
+            h2william:"<h2><i>William Rene Jimenez Guzman ---- SMIS031920</i></h2>",
+            h2cesar:  "<h2><i>Cesar Andre Chavez Herrera ------- SMIS033320</i></h2>",
+            peliculas:[{text:'Spiderman:De regreso a casa',checked: false}, {text:'Spiderman:Sin regreso a casa',checked: false}, {text:'Spiderman:Empeñamos la casa',checked: false}, {text:'Spiderman:Perdimos la casa',checked: false}],
+        }
+
+        var prueba = new Vue({
+            el:'#principal',
+            data:datos
+        })
+    </script>
+
 
     <script 
         src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" 
