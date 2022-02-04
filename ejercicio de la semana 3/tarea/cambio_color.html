@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tarea semana 3</title>
+</head>
+<body>
+    <h1>Presione una tecla</h1>
+    <div  id="programa">
+        
+        <h2 v-on:keyup ="teclado($event)">{{titulo}}</h2>
+        <input v-on:keyup ="teclado($event)" type="text">
+        <div v-bind:style="{ background: color_evento}">
+            </br>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        //leer el teclado
+        //cambiar de color el fondo
+        var test = "a"
+        /*
+        window.addEventListener("keydown" ,function(e){
+            test = "b"
+            console.log(test)
+        })
+        */
+        let variables = {
+            titulo:test,
+            color_evento:"green"
+        }
+        var t = new Vue({
+            el:"#programa",
+            data:variables,
+            methods:{
+                teclado(evento){
+                    //console.log(evento.key)
+                    var entrada = evento.key
+                    var letras = "qwertyuiopasdfghjklñzxcvbnm"//.toUpperCase()
+                    var numeros = "1234567890"
+                    
+                    
+                    var separacion = letras.split("")
+                    
+                    
+                    for(var i = 0 ; i < separacion.length ; i++){
+                
+                        if(separacion[i] ==entrada){
+                            this.color_evento = "green"
+                            return
+                        }
+                    }
+
+                    separacion = letras.toUpperCase()
+                    separacion = separacion.split("")
+
+                    for(var i = 0 ; i < separacion.length ; i++){
+                
+                        if(separacion[i] ==entrada){
+                            this.color_evento = "green"
+                            return
+                        }
+                    }
+
+                    separacion = numeros.split("")
+
+                    for(var i = 0 ; i < separacion.length ; i++){
+                
+                        if(separacion[i] ==entrada){
+                            this.color_evento = "red"
+                            return
+                        }
+                    }
+
+                    this.color_evento = "yellow"
+
+                }
+            }
+        })
+
+        
+            
+
+        
+        
+        
+    </script>
+
+</body>
+
+</html>

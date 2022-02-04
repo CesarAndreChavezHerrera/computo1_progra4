@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black;">
+    <h1>precione una tecla</h1>
+    <script>
+        var cuepo = document.querySelector("body")
+        window.addEventListener("keydown",function(e){
+            var entrada = e.key
+            var letras = "qwertyuiopasdfghjklñzxcvbnm"//.toUpperCase()
+            var numeros = "1234567890"
+            var separacion = letras.split("")
+            
+            for(var i = 0 ; i < separacion.length ; i++){
+                
+                if(separacion[i] ==entrada){
+                    cuepo.style = "background-color: green"
+                    return
+                }
+
+            }
+            separacion = letras.toUpperCase()
+            separacion = letras.split("")
+
+            
+            for(var i = 0 ; i < separacion.length ; i++){
+                
+                if(separacion[i] ==entrada){
+                    cuepo.style = "background-color: green"
+                    return
+                }
+            }
+            separacion = numeros.split("")
+
+            for(var i = 0 ; i < separacion.length ; i++){
+                
+                if(separacion[i] ==entrada){
+                    cuepo.style = "background-color: red"
+                    return
+                }
+            }
+
+            cuepo.style = "background-color: yellow"
+
+
+        })
+    </script>
+</body>
+    
+</html>
